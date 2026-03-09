@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cours Collège - Xam Xam</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+--primary:#6366f1;
+--gradient-1:linear-gradient(135deg,#667eea,#764ba2);
+--gradient-2:linear-gradient(135deg,#f093fb,#f5576c);
+--dark:#1e293b;
+--white:#fff;
+--shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+body{
+font-family:Poppins,sans-serif;
+background:#f8fafc;
+color:var(--dark);
+}
+
+/* HEADER */
+header{
+position:sticky;
+top:0;
+z-index:5000;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 30px;
+background:#fff;
+box-shadow:0 4px 20px rgba(0,0,0,.08);
+}
+
+header img{height:55px}
+
+/* NAV DESKTOP */
+nav ul{
+display:flex;
+gap:10px;
+list-style:none;
+align-items:center;
+}
+
+nav a, nav button{
+background:none;
+border:none;
+cursor:pointer;
+padding:12px 18px;
+border-radius:8px;
+font-size:15px;
+}
+
+nav a:hover, nav button:hover{
+background:var(--gradient-1);
+color:#fff;
+}
+
+/* SUBMENU DESKTOP */
+.submenu{
+display:none;
+position:absolute;
+top:100%;
+left:0;
+background:#fff;
+border-radius:12px;
+box-shadow:var(--shadow);
+min-width:200px;
+}
+
+.submenu a{
+display:block;
+padding:12px 18px;
+}
+
+@media(min-width:769px){
+.dropdown:hover .submenu{
+display:block;
+}
+}
+
+/* BURGER */
+.burger{
+display:none;
+padding:10px 16px;
+border-radius:8px;
+background:var(--gradient-1);
+color:#fff;
+cursor:pointer;
+border:none;
+}
+
+/* OVERLAY */
+.menu-overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.5);
+display:none;
+z-index:4998;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.burger{display:block}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+height:100vh;
+width:85%;
+max-width:320px;
+background:#fff;
+transform:translateX(-100%);
+transition:.3s;
+z-index:4999;
+padding-top:70px;
+}
+
+nav.active{
+transform:translateX(0);
+}
+
+.menu-overlay.active{
+display:block;
+}
+
+nav ul{
+flex-direction:column;
+padding:0 20px;
+}
+
+.dropdown button{
+width:100%;
+display:flex;
+justify-content:space-between;
+}
+
+.dropdown button::after{
+content:"▼";
+font-size:12px;
+}
+
+.dropdown.open button::after{
+transform:rotate(180deg);
+}
+
+.submenu{
+position:static;
+box-shadow:none;
+display:none;
+background:rgba(99,102,241,.05);
+margin-top:8px;
+border-radius:8px;
+}
+
+.submenu.show{
+display:block;
+}
+}
+
+/* PAGE */
+.page-header{
+background:var(--gradient-1);
+color:#fff;
+padding:60px 20px;
+text-align:center;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+}
+
+.cours-section{
+background:#fff;
+padding:30px;
+margin-bottom:30px;
+border-radius:20px;
+box-shadow:var(--shadow);
+}
+
+.btn{
+display:block;
+padding:14px;
+background:var(--gradient-1);
+color:#fff;
+border-radius:12px;
+text-align:center;
+margin-top:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="Black Illustrated School Logo_20250915_033236_0000.png">
+
+<button class="burger" id="burger">☰ Menu</button>
+
+<nav id="nav">
+<ul>
+<li><a href="index.html">Accueil</a></li>
+
+<li class="dropdown">
+<button class="drop-btn">Cours</button>
+<ul class="submenu">
+<li><a href="ccollege.html">Collège</a></li>
+<li><a href="clycee.html">Lycée</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<button class="drop-btn">Devoirs</button>
+<ul class="submenu">
+<li><a href="evcollege.html">Collège</a></li>
+<li><a href="evlycee.html">Lycée</a></li>
+</ul>
+</li>
+
+<li><a href="informatique.html">Informatique</a></li>
+</ul>
+</nav>
+</header>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+<div class="page-header">
+<h1>Cours Collège</h1>
+<p>6ème à 3ème</p>
+</div>
+
+<div class="container">
+<section class="cours-section">
+<h2>6ème – SVT</h2>
+<a class="btn" href="fascicule-svt-6eme.pdf">Télécharger</a>
+</section>
+</div>
+
+<script>
+const burger=document.getElementById("burger");
+const nav=document.getElementById("nav");
+const overlay=document.getElementById("menuOverlay");
+
+burger.onclick=()=>{
+nav.classList.toggle("active");
+overlay.classList.toggle("active");
+};
+
+overlay.onclick=()=>{
+nav.classList.remove("active");
+overlay.classList.remove("active");
+closeSubmenus();
+};
+
+document.querySelectorAll(".drop-btn").forEach(btn=>{
+btn.onclick=()=>{
+const parent=btn.parentElement;
+const submenu=parent.querySelector(".submenu");
+
+document.querySelectorAll(".dropdown").forEach(d=>{
+if(d!==parent){
+d.classList.remove("open");
+d.querySelector(".submenu").classList.remove("show");
+}
+});
+
+parent.classList.toggle("open");
+submenu.classList.toggle("show");
+};
+});
+
+function closeSubmenus(){
+document.querySelectorAll(".dropdown").forEach(d=>{
+d.classList.remove("open");
+d.querySelector(".submenu").classList.remove("show");
+});
+}
+</script>
+
+</body>
+</html>
+

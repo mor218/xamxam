@@ -1,0 +1,21 @@
+{
+  "name": "xam-xam-site",
+  "version": "1.0.0",
+  "description": "Site éducatif pour les cours et évaluations.",
+  "main": "src/js/main.js",
+  "scripts": {
+    "start": "live-server src",
+    "build": "bash tools/build-scripts/build.sh"
+  },
+  "author": "XAM-XAM",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "education",
+    "courses",
+    "evaluations"
+  ]
+}
