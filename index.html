@@ -1,23 +1,58 @@
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="google-adsense-account" content="ca-pub-8870644628772987">
- <meta name="google-site-verification" content="yCIdNLvdnEVuzxT81ytgyvrcjzxvHCVPJyTz5XTJyhE" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta name="description" content="Xam Xam est une plateforme éducative sénégalaise proposant des cours, exercices, devoirs et sujets du BAC pour le primaire, collège et lycée.">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8870644628772987"
- crossorigin="anonymous"></script>
+
   <title>Xam Xam - Plateforme éducative</title>
+
+  <meta name="description"
+    content="Xam Xam est une plateforme éducative sénégalaise proposant des cours, exercices, devoirs et sujets du BAC pour le primaire, collège et lycée.">
+
+  <link rel="icon" href="favicon.ico">
+
+  <!-- Google verification -->
+  <meta name="google-site-verification" content="yCIdNLvdnEVuzxT81ytgyvrcjzxvHCVPJyTz5XTJyhE" />
+
+  <!-- Google AdSense -->
+  <meta name="google-adsense-account" content="ca-pub-8870644628772987">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8870644628772987"
+    crossorigin="anonymous"></script>
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NJ50T3Y4J3"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-NJ50T3Y4J3');
+  </script>
+
+  <!-- Monetag Ads -->
+  <script>
+    (function (d, z, s) {
+      s.src = 'https://gizokraijaw.net/vignette.min.js';
+      s.dataset.zone = '10692437';
+      (d.body || d.documentElement).appendChild(s);
+    })(document, window, document.createElement('script'));
+  </script>
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="icon" href="favicon.ico" type="image/x-icon">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
 
   <style>
     /* ========== BASE ========== */
-    * { 
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
@@ -61,6 +96,1137 @@
       justify-content: space-between;
       padding: 20px 40px;
       background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 5000;
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
+    }
+
+
+    header img {
+      height: 65px;
+      transition: transform 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ========== NAV PC ========== */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      position: relative;
+    }
+
+    nav a,
+    nav button {
+      background: none;
+      border: none;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: var(--dark);
+      transition: all 0.3s ease;
+      font-family: "Poppins", sans-serif;
+      white-space: nowrap;
+      display: inline-block;
+      min-width: fit-content;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    nav a:hover,
+    nav button:hover {
+      background: var(--gradient-1);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    nav a.active {
+      background: var(--gradient-1);
+      color: var(--white);
+    }
+
+    /* ========== SOUS-MENUS PC ========== */
+    .submenu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background: var(--white);
+      min-width: 200px;
+      padding: 12px 0;
+      box-shadow: var(--shadow-lg);
+      border-radius: 12px;
+      z-index: 999;
+      animation: fadeInDown 0.3s ease;
+      overflow: hidden;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .submenu li {
+      margin: 0;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 12px 20px;
+      color: var(--dark);
+      border-radius: 0;
+      font-size: 14px;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    .submenu a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .dropdown:hover .submenu {
+      display: block;
+    }
+
+    /* ========== BURGER ========== */
+    .burger {
+      display: none;
+      cursor: pointer;
+      padding: 10px 15px;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      background: var(--gradient-1);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 14px;
+      border: none;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+    }
+
+    .burger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+    }
+
+    .burger.active {
+      background: var(--gradient-2);
+    }
+
+    .burger span {
+      display: none;
+    }
+
+    .burger::before {
+      content: '☰ Menu';
+      display: block;
+    }
+
+    .burger.active::before {
+      content: '✕ Fermer';
+    }
+
+    /* ========== HERO VIDEO ========== */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.85) 0%, rgba(139, 92, 246, 0.85) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      color: var(--white);
+      padding: 40px;
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-family: "Poppins", sans-serif;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    /* ========== FEATURES SECTION ========== */
+    .features {
+      padding: 80px 40px;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-1);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ========== 📱 VERSION TELEPHONE ========== */
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header img {
+        height: 45px;
+      }
+
+      .burger {
+        display: block;
+        padding: 10px 18px;
+        font-size: 13px;
+      }
+
+      /* Overlay pour le menu */
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+        z-index: 4998;
+        pointer-events: none;
+      }
+
+      .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: all;
+      }
+
+      nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: var(--white);
+        padding: 70px 0 30px;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
+        overflow-y: auto;
+        z-index: 4999;
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: auto;
+      }
+
+      nav.active {
+        display: block;
+        transform: translateX(0);
+        pointer-events: auto;
+      }
+
+      nav ul {
+        pointer-events: auto;
+        flex-direction: column;
+        gap: 8px;
+        align-items: stretch;
+        padding: 0 20px;
+      }
+
+      nav li {
+        pointer-events: auto;
+        border-bottom: 1px solid rgba(99, 102, 241, 0.1);
+        padding-bottom: 8px;
+      }
+
+      nav li:last-child {
+        border-bottom: none;
+      }
+
+      nav a,
+      nav button {
+        pointer-events: auto;
+        cursor: pointer;
+        width: 100%;
+        text-align: left;
+        padding: 18px 15px;
+        border-radius: 12px;
+        font-size: 16px;
+        font-weight: 500;
+        background: transparent;
+        transition: all 0.3s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      nav button.drop-btn {
+        user-select: none;
+        -webkit-user-select: none;
+      }
+
+      nav a:hover,
+      nav button:hover {
+        background: var(--gradient-1);
+        color: var(--white);
+        transform: translateX(5px);
+        padding-left: 20px;
+      }
+
+      .submenu {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 8px;
+        margin-left: 0;
+        background: rgba(99, 102, 241, 0.05);
+        border-radius: 12px;
+        display: none;
+        overflow: hidden;
+        border: 1px solid rgba(99, 102, 241, 0.1);
+        pointer-events: auto;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .submenu.show {
+        display: block !important;
+        animation: slideDownSubmenu 0.3s ease;
+        pointer-events: auto;
+      }
+
+      .submenu a {
+        pointer-events: auto;
+        cursor: pointer;
+      }
+
+      @keyframes slideDownSubmenu {
+        from {
+          opacity: 0;
+          max-height: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          max-height: 500px;
+          transform: translateY(0);
+        }
+      }
+
+      .submenu li {
+        margin: 0;
+        border-bottom: none;
+        padding: 0;
+      }
+
+      .submenu a {
+        padding: 15px 20px;
+        display: block;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        font-size: 15px;
+        color: var(--dark);
+      }
+
+      .submenu a:hover {
+        background: var(--gradient-1);
+        color: var(--white);
+        transform: translateX(8px);
+        padding-left: 25px;
+      }
+
+      .dropdown:hover .submenu {
+        display: none;
+      }
+
+      .drop-btn {
+        width: 100%;
+        text-align: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+      }
+
+      .drop-btn::after {
+        content: '▼';
+        font-size: 12px;
+        transition: transform 0.3s ease;
+      }
+
+      .dropdown:has(.submenu.show) .drop-btn::after {
+        transform: rotate(180deg);
+      }
+
+      .hero {
+        height: 70vh;
+        min-height: 500px;
+      }
+
+      .hero-content {
+        padding: 30px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .features {
+        padding: 60px 20px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header>
+    <img src="Black Illustrated School Logo_20250915_033236_0000.png" alt="Logo Xam Xam">
+
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Overlay pour le menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html" class="active">Accueil</a></li>
+
+        <li class="dropdown">
+          <button class="drop-btn">Cours </button>
+          <ul class="submenu">
+            <li><a href="ccollege.html">Collège</a></li>
+            <li><a href="clycée.html">Lycée</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <button class="drop-btn">Devoirs </button>
+          <ul class="submenu">
+            <li><a href="evcollege.html">Collège</a></li>
+            <li><a href="evlycee.html">Lycée</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <button class="drop-btn">Bac </button>
+          <ul class="submenu">
+            <li><a href="bac-s.html">Bac Scientifiques</a></li>
+            <li><a href="bac-l.html">Bac Littéraires</a></li>
+            <li><a href="bac-t.html">Bac Technique</a></li>
+            <li><a href="bac-g.html">Bac Gestion</a></li>
+            <li><a href="bac-étrangers.html">Bac Étrangers</a></li>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <button class="drop-btn">Exercices </button>
+          <ul class="submenu">
+            <li><a href="eprimaire.html">Primaire</a></li>
+            <li><a href="ecollege.html">Collège</a></li>
+            <li><a href="elycee.html">Lycée</a></li>
+          </ul>
+        </li>
+
+        <li><a href="informatique.html">Informatique</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <video autoplay muted loop playsinline class="video-bg">
+      <source src="Black Illustrated School Logo.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content">
+      <h1>Bienvenue sur Xam Xam</h1>
+      <p>Votre plateforme éducative complète pour réussir vos études</p>
+      <div class="cta-buttons">
+        <a href="#features" class="btn btn-primary">Découvrir</a>
+        <a href="ccollege.html" class="btn btn-secondary">Commencer</a>
+      </div>
+    </div>
+  </section>
+  <!-- ========== FEATURES ========== -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title">Nos Services</h2>
+      <p class="section-subtitle">Accédez à une large gamme de ressources éducatives pour tous les niveaux</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📚</div>
+          <h3>Cours Complets</h3>
+          <p>Accédez à des cours détaillés pour le collège et le lycée, couvrant tous les programmes officiels.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📝</div>
+          <h3>Devoirs & Évaluations</h3>
+          <p>Entraînez-vous avec des devoirs surveillés et des évaluations pour tous les niveaux.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">🎓</div>
+          <h3>Préparation au Bac</h3>
+          <p>Ressources complètes pour toutes les séries : S, L, T, G et bacs étrangers.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">✏️</div>
+          <h3>Exercices Pratiques</h3>
+          <p>Des milliers d'exercices corrigés pour le primaire, collège et lycée.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">💻</div>
+          <h3>Informatique</h3>
+          <p>Ressources et cours d'informatique pour développer vos compétences numériques.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">📖</div>
+          <h3>Ressources Multidisciplinaires</h3>
+          <p>Maths, Physique, SVT, Français, Histoire-Géo, Philosophie et bien plus encore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="apropos">
+    <div class="container">
+      <h2 class="section-title">À propos de Xam Xam</h2>
+      <p class="section-subtitle">
+        Xam Xam est une plateforme éducative destinée aux élèves du primaire, du collège et du lycée.
+        Elle propose des cours, exercices, devoirs et ressources pédagogiques pour aider les apprenants
+        à réussir leurs examens et améliorer leurs performances scolaires.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" style="background:#f1f5f9">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Pour toute question, suggestion ou collaboration :<br><br><br>
+        📧 <strong>moriste1972@gmail.com</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CONFIDENTIALITÉ (OBLIGATOIRE GOOGLE) ===== -->
+  <section id="confidentialite">
+    <div class="container">
+      <h2 class="section-title">Politique de confidentialité</h2>
+      <p class="section-subtitle">
+        Ce site utilise Google AdSense, un service de diffusion de publicités fourni par Google.
+        Google utilise des cookies pour afficher des annonces pertinentes en fonction des visites
+        précédentes des utilisateurs sur ce site.
+        <br><br>
+        Les utilisateurs peuvent désactiver les cookies publicitaires via les paramètres des annonces Google.
+        En utilisant ce site, vous acceptez cette politique de confidentialité.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== JS ========== -->
+  <script>
+    const burger = document.getElementById("burger");
+    const nav = document.getElementById("nav");
+
+    // Fonction pour fermer tous les sous-menus
+    function closeAllSubmenus() {
+      document.querySelectorAll(".submenu").forEach(menu => {
+        menu.classList.remove("show");
+      });
+    }
+
+    // Fonction pour vérifier si on est sur mobile
+    function isMobile() {
+      return window.innerWidth <= 768;
+    }
+
+    const menuOverlay = document.getElementById("menuOverlay");
+
+    // Gestion du menu burger
+    burger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const wasActive = nav.classList.contains("active");
+      nav.classList.toggle("active");
+      burger.classList.toggle("active");
+
+      // Gérer l'overlay
+      if (wasActive) {
+        menuOverlay.classList.remove("active");
+        closeAllSubmenus();
+      } else {
+        menuOverlay.classList.add("active");
+      }
+    }, { capture: true });
+
+    // Fermer le menu quand on clique sur l'overlay (mais pas sur le menu lui-même)
+    menuOverlay.addEventListener("click", function (e) {
+      if (isMobile() && nav.classList.contains("active")) {
+        // Vérifier que le clic n'est pas sur le menu
+        if (!nav.contains(e.target)) {
+          nav.classList.remove("active");
+          burger.classList.remove("active");
+          menuOverlay.classList.remove("active");
+          closeAllSubmenus();
+        }
+      }
+    }, { capture: true });
+
+    // Gestion des boutons dropdown - fonctionne sur mobile et desktop
+    document.querySelectorAll(".drop-btn").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Trouver le sous-menu parent
+        const dropdown = this.closest(".dropdown");
+        if (!dropdown) return;
+
+        const submenu = dropdown.querySelector(".submenu");
+        if (!submenu) return;
+
+        const isOpen = submenu.classList.contains("show");
+
+        // Sur mobile, fermer tous les autres sous-menus
+        if (isMobile()) {
+          document.querySelectorAll(".submenu").forEach(menu => {
+            if (menu !== submenu) {
+              menu.classList.remove("show");
+            }
+          });
+        }
+
+        // Toggle le sous-menu immédiatement
+        if (isOpen) {
+          submenu.classList.remove("show");
+        } else {
+          submenu.classList.add("show");
+        }
+      }, { capture: true });
+    });
+
+    // Fermer le menu quand on clique sur un lien du sous-menu (mobile)
+    document.querySelectorAll(".submenu a").forEach(link => {
+      link.addEventListener("click", function (e) {
+        if (isMobile()) {
+          nav.classList.remove("active");
+          burger.classList.remove("active");
+          menuOverlay.classList.remove("active");
+          closeAllSubmenus();
+        }
+      }, { capture: true });
+    });
+
+    // Gérer le redimensionnement de la fenêtre
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        if (!isMobile()) {
+          // Sur desktop, fermer le menu burger et les sous-menus
+          nav.classList.remove("active");
+          burger.classList.remove("active");
+          menuOverlay.classList.remove("active");
+          closeAllSubmenus();
+        }
+      }, 250);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#confidentialite' || href === '#contact' || href === '#apropos' || href === '#accueil' || href === '#features') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            // Fermer le menu sur mobile après le scroll
+            if (isMobile()) {
+              setTimeout(() => {
+                nav.classList.remove("active");
+                burger.classList.remove("active");
+                menuOverlay.classList.remove("active");
+                closeAllSubmenus();
+              }, 300);
+            }
+          }
+        }
+      }, { capture: true });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 100) {
+        document.querySelector('header').style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.15)';
+      } else {
+        document.querySelector('header').style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+      }
+      lastScroll = currentScroll;
+    });
+    self.options = {
+      "domain": "5gvci.com",
+      "zoneId": 10692275
+    }
+    let btn = document.getElementById("topBtn");
+
+    window.addEventListener("scroll", function () {
+      if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    });
+
+    btn.onclick = function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+  </script>
+  <!-- ===== FOOTER COMPLET XAMXAM ===== -->
+
+  <!-- Font Awesome pour les logos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    .footer {
+      background: #431857;
+      color: white;
+      padding: 60px 20px;
+      margin-top: 60px;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+    }
+
+    .footer-section h3 {
+      margin-bottom: 15px;
+    }
+
+    .footer-section p {
+      line-height: 1.6;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-section a {
+      color: #c7d2fe;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+      padding-left: 4px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      font-size: 26px;
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      color: white;
+      transition: 0.3s;
+      animation: float 3s infinite ease-in-out;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.4) rotate(10deg);
+    }
+
+    .linkedin:hover {
+      color: #0A66C2;
+    }
+
+    .twitter:hover {
+      color: #1DA1F2;
+    }
+
+    .instagram:hover {
+      color: #E1306C;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0)
+      }
+
+      50% {
+        transform: translateY(-6px)
+      }
+
+      100% {
+        transform: translateY(0)
+      }
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 20px;
+      font-size: 14px;
+    }
+
+    /* bouton retour en haut */
+
+    #topBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: #282971;
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      font-size: 18px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: 0.3s;
+    }
+
+    #topBtn:hover {
+      background: #4f46e5;
+      transform: scale(1.1);
+    }
+
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-logo img {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
+
+
+  <footer class="footer">
+
+    <div class="footer-container">
+
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="android-chrome-192x192.png" alt="Logo XAM XAM">
+          <span>XAM XAM</span>
+        </div>
+        <p>
+          Plateforme éducative sénégalaise pour le primaire,
+          collège et lycée. Accédez à des cours, exercices,
+          devoirs et sujets du BAC pour réussir vos études.
+        </p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="ccollege.html">Cours</a></li>
+          <li><a href="evcollege.html">Devoirs</a></li>
+          <li><a href="elycee.html">Exercices</a></li>
+          <li><a href="bac-s.html">BAC</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>📧 moriste1972@gmail.com</p>
+        <p>Sénégal</p>
+      </div>
+
+      <div class="footer-section">
+        <h3>Suivez-nous</h3>
+
+        <div class="social-icons">
+
+          <a href="https://www.linkedin.com/in/mor-gueye-3b7890293?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            class="linkedin">
+            <i class="fab fa-linkedin"></i>
+          </a>
+
+          <a href="https://x.com/Mortech283431" class="twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+
+          <a href="https://www.instagram.com/mor_tech3?igsh=MXJzM2o1M3Y0ZHAzbw==" class="instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Xam Xam – Plateforme éducative | Créée par Serigne Mor Gueye <a
+        href="confidentialite.html">Confidentialité</a>
+    </div>
+
+    <button id="topBtn">↑</button>
+
+  </footer>
+
+
+  <script>
+
+    let btn = document.getElementById("topBtn");
+
+    window.onscroll = function () {
+      if (document.documentElement.scrollTop > 200) {
+        btn.style.display = "block";
+      } else {
+        btn.style.display = "none";
+      }
+    }
+
+    btn.onclick = function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    }
+
+  </script>
+
+</body>
+
+</html>      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(10px);
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       position: sticky;
@@ -947,216 +2113,4 @@
 
 </body>
 </html>  
-      text-decoration: underline;
-    }
 
-    /* ========== SOUS-MENUS PC ========== */
-    .submenu {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      background: #fff;
-      min-width: 180px;
-      padding: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      z-index: 999;
-    }
-
-    .submenu li {
-      margin: 6px 0;
-    }
-
-    .dropdown:hover .submenu {
-      display: block;
-    }
-
-    /* ========== BURGER ========== */
-    .burger {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-    }
-
-    .burger span {
-      width: 26px;
-      height: 3px;
-      background: #000;
-    }
-
-    /* ========== HERO VIDEO ========== */
-    .hero {
-      position: relative;
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .video-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .hero-content {
-      position: relative;
-      background: rgba(255,255,255,0.85);
-      padding: 30px;
-      border-radius: 20px;
-      text-align: center;
-      max-width: 700px;
-    }
-
-    /* ========== 📱 VERSION TELEPHONE ========== */
-    @media (max-width: 768px) {
-
-      /* afficher burger */
-      .burger {
-        display: flex;
-      }
-
-      /* cacher menu PC */
-      nav {
-        display: none;
-        position: absolute;
-        top: 90px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        padding: 20px 0;
-      }
-
-      nav.active {
-        display: block;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 12px;
-        align-items: center;
-      }
-
-      /* sous-menus mobile */
-      .submenu {
-        position: static;
-        box-shadow: none;
-        padding-left: 15px;
-        display: none;
-      }
-
-      .submenu.show {
-        display: block;
-      }
-
-      /* désactiver hover mobile */
-      .dropdown:hover .submenu {
-        display: none;
-      }
-
-      .hero {
-        height: 50vh;
-      }
-
-      .hero-content {
-        padding: 20px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<!-- ========== HEADER ========== -->
-<header>
-  <img src="Black Illustrated School Logo_20250915_033236_0000.png" alt="Logo Xam Xam">
-
-  <div class="burger" id="burger">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <nav id="nav">
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-
-      <li class="dropdown">
-        <button class="drop-btn">Cours ▾</button>
-        <ul class="submenu">
-          <li><a href="ccollege.html">Collège</a></li>
-          <li><a href="clycée.html">Lycée</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <button class="drop-btn">Devoirs ▾</button>
-        <ul class="submenu">
-          <li><a href="evcollege.html">Collège</a></li>
-          <li><a href="evlycee.html">Lycée</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <button class="drop-btn">Bac ▾</button>
-        <ul class="submenu">
-          <li><a href="bac-s.html">Bac Scientifiques</a></li>
-          <li><a href="bac-l.html">Bac Littéraires</a></li>
-          <li><a href="bac-t.html">Bac Technique</a></li>
-          <li><a href="bac-g.html">Bac Gestion</a></li>
-          <li><a href="bac-etrangers.html">Bac Étrangers</a></li>
-        </ul>
-      </li>
-
-      <li class="dropdown">
-        <button class="drop-btn">Exercices ▾</button>
-        <ul class="submenu">
-          <li><a href="eprimaire.html">Primaire</a></li>
-          <li><a href="ecollege.html">Collège</a></li>
-          <li><a href="elycee.html">Lycée</a></li>
-        </ul>
-      </li>
-
-      <li><a href="informatique.html">Informatique</a></li>
-    </ul>
-  </nav>
-</header>
-
-<!-- ========== HERO ========== -->
-<section class="hero">
-  <video autoplay muted loop class="video-bg">
-    <source src="Black Illustrated School Logo.mp4" type="video/mp4">
-  </video>
-
-  <div class="hero-content">
-    <h1>Bienvenue sur Xam Xam</h1>
-    <p>
-      Plateforme d’apprentissage du CM2 à la Terminale proposant cours,
-      devoirs, séries d’exercices, fascicules et sujets de Bac du Sénégal
-      et d’autres pays.
-    </p>
-  </div>
-</section>
-
-<!-- ========== JS ========== -->
-<script>
-  const burger = document.getElementById("burger");
-  const nav = document.getElementById("nav");
-
-  burger.addEventListener("click", () => {
-    nav.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".drop-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      btn.nextElementSibling.classList.toggle("show");
-    });
-  });
-</script>
-
-</body>
-</html>
